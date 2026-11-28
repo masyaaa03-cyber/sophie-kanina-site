@@ -13,16 +13,16 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23914F60'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23E9E1D4' font-family='serif'%3EС%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/cormorant-garamond-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/lora-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Golos Text";font-weight:400;font-display:swap;src:url(fonts/golos-text-cyrillic-400-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Golos Text";font-weight:400;font-display:swap;src:url(fonts/golos-text-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
 @font-face{font-family:"Golos Text";font-weight:600;font-display:swap;src:url(fonts/golos-text-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Golos Text";font-weight:600;font-display:swap;src:url(fonts/golos-text-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
-@font-face{font-family:"Cormorant Garamond";font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Cormorant Garamond";font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
-@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
+@font-face{font-family:"Lora";font-weight:500;font-display:swap;src:url(fonts/lora-cyrillic-500-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Lora";font-weight:500;font-display:swap;src:url(fonts/lora-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
+@font-face{font-family:"Lora";font-weight:500;font-style:italic;font-display:swap;src:url(fonts/lora-cyrillic-500-italic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Lora";font-weight:500;font-style:italic;font-display:swap;src:url(fonts/lora-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+2000-206F,U+20BD}
 
 /* Палитра «Мягкая гармония»: 60 % айвори, 30 % деним и teal, 10 % клюква */
 :root{
@@ -38,7 +38,7 @@
   --wine:#704654;      /* наведение на кнопку */
   --rose:#BC9294;      /* декор */
   --sage:#9AA58E;      /* декор */
-  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --serif:"Lora",Georgia,"Times New Roman",serif;
   --body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
   --paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -50,16 +50,16 @@ a{color:var(--cranberry)}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--cranberry);outline-offset:3px;border-radius:4px}
 .on-dark a:focus-visible,.on-dark summary:focus-visible{outline-color:#fff}
 h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;margin:0 0 .5em;color:var(--choco)}
-h1{font-size:clamp(46px,8vw,92px);letter-spacing:-.01em}
-h2{font-size:clamp(34px,5vw,54px)}
-h3{font-size:26px}
+h1{font-size:clamp(40px,7vw,80px);letter-spacing:-.01em}
+h2{font-size:clamp(29px,4.3vw,46px)}
+h3{font-size:22px}
 .caps{text-transform:uppercase;letter-spacing:.02em}
 p{margin:0 0 1em}
 .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
 .narrow{max-width:760px}
 section{padding:88px 0;position:relative;overflow-x:clip}
 @media (max-width:900px){section{padding:52px 0}.aud-head{margin-bottom:28px!important}.steps{margin-top:32px!important}.note{margin-top:28px!important}.doors{margin-top:18px}.collage{margin-bottom:-10px}}
-.eyebrow{font:italic 500 22px/1.2 var(--serif);color:var(--cranberry);margin:0 0 14px}
+.eyebrow{font:italic 500 19px/1.3 var(--serif);color:var(--cranberry);margin:0 0 14px}
 .on-dark .eyebrow{color:#fff}
 .lead{font-size:20px}
 .center{text-align:center}
@@ -74,7 +74,7 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 /* полароид со скотчем */
 .pol{background:#FBF8F3;padding:10px 10px 38px;box-shadow:0 10px 24px rgba(89,70,62,.18);position:relative;margin:0}
 .pol img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--oat)}
-.pol figcaption{position:absolute;left:10px;right:10px;bottom:8px;font:italic 500 18px/1.2 var(--serif);color:var(--choco);text-align:center}
+.pol figcaption{position:absolute;left:10px;right:10px;bottom:9px;font:italic 500 15px/1.2 var(--serif);color:var(--choco);text-align:center}
 .pol::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(205,191,174,.75);transform:rotate(-3deg)}
 .pol.wide img{aspect-ratio:3/2}.pol.sq img{aspect-ratio:1/1}
 .pair{position:relative;padding-bottom:90px}.pair .sq{position:absolute;right:-8px;bottom:0;width:46%}
@@ -83,7 +83,7 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 /* шапка */
 .top{position:sticky;top:0;z-index:10;background:rgba(233,225,212,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--oat)}
 .top .wrap{display:flex;align-items:center;gap:24px;min-height:64px}
-.brand{font:500 24px/1 var(--serif);color:var(--choco);text-decoration:none;margin-right:auto;min-height:44px;display:flex;align-items:center}
+.brand{font:500 21px/1 var(--serif);color:var(--choco);text-decoration:none;margin-right:auto;min-height:44px;display:flex;align-items:center}
 .nav{display:flex;gap:22px}
 .nav a{color:var(--graphite);text-decoration:none;font-size:16px;padding:10px 0}
 .nav a:hover{color:var(--cranberry)}
@@ -101,7 +101,7 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 /* первый экран */
 .hero{padding:56px 0 96px}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(44px,6.4vw,84px);line-height:1}
+.hero h1{font-size:clamp(40px,5.6vw,72px);line-height:1.05}
 .hero h1 span{white-space:nowrap}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px;padding:0;list-style:none}
 .chips li{border:1px solid var(--taupe);padding:6px 16px;font-size:16px}
@@ -110,7 +110,7 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 .hero-pics .p1{width:84%;margin:0 auto}
 .hero-pics .p1 img{aspect-ratio:800/920}
 @media (max-width:900px){.hero{padding:20px 0 40px}.hero .wrap{grid-template-columns:1fr;gap:0}.hero .wrap>div:first-child{display:contents}
-  .hero .eyebrow{order:1;margin:0 0 6px;font-size:19px}.hero h1{order:2;margin:0;font-size:clamp(40px,11vw,60px)}
+  .hero .eyebrow{order:1;margin:0 0 6px;font-size:17px}.hero h1{order:2;margin:0;font-size:clamp(36px,10vw,52px)}
   .hero-pics{order:3;margin:22px auto 8px;width:82%;max-width:340px}.hero-pics .p1{width:100%}
   .hero .lead{order:4;font-size:17px;line-height:1.55;margin:18px 0 0}.hero .chips{order:5;margin:16px 0 18px;gap:8px}.hero .chips li{font-size:15px;padding:4px 12px}
   .hero .btn{order:6}.hero .cta-note{order:7}}
@@ -139,7 +139,7 @@ section{padding:88px 0;position:relative;overflow-x:clip}
   .door{display:grid;grid-template-columns:104px 1fr;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--oat)}
   .door:first-child{border-top:1px solid var(--oat)}
   .door .pol{padding:5px 5px 5px;transform:none}.door .pol::before{display:none}.door .pol img{aspect-ratio:1/1}
-  .door h3{margin:0 0 2px;text-align:left;font-size:24px;color:var(--cranberry)}.door p{text-align:left;font-size:15px;line-height:1.45}}
+  .door h3{margin:0 0 2px;text-align:left;font-size:21px;color:var(--cranberry)}.door p{text-align:left;font-size:15px;line-height:1.45}}
 
 /* блоки аудиторий */
 .aud-head{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center;margin-bottom:48px}
@@ -171,8 +171,8 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 
 .steps{list-style:none;padding:0;margin:56px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
 .steps li{border-top:1px solid var(--taupe);padding-top:18px;counter-increment:s}
-.steps li::before{content:"( " counter(s) " )";display:block;font:italic 500 22px var(--serif);color:var(--cranberry);margin-bottom:6px}
-.steps h3{font-size:24px}
+.steps li::before{content:"( " counter(s) " )";display:block;font:italic 500 18px var(--serif);color:var(--cranberry);margin-bottom:6px}
+.steps h3{font-size:21px}
 @media (max-width:900px){.steps{grid-template-columns:1fr}}
 
 .teen-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;margin-top:8px}
@@ -183,19 +183,19 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 .on-dark .teen-grid ul{border-color:rgba(255,255,255,.35)}.on-dark .teen-grid li{border-color:rgba(255,255,255,.35)}.on-dark .teen-grid li::before{background:#fff}
 @media (max-width:900px){.teen-grid{grid-template-columns:1fr;gap:24px}}
 .note{max-width:840px;margin:40px auto 0;padding:22px 26px;background:var(--ivory-2);border:1px solid var(--oat)}
-.note h3{font-size:24px;margin-bottom:6px}
+.note h3{font-size:21px;margin-bottom:6px}
 .price-note{text-align:center;margin:0 auto;max-width:640px}
 .help{margin-top:40px;background:var(--ivory-2);color:var(--graphite);padding:26px 28px;border-left:4px solid var(--cranberry);max-width:840px;margin-left:auto;margin-right:auto}
-.help strong{display:block;font:500 28px/1.2 var(--serif);color:var(--choco);margin-bottom:6px}
+.help strong{display:block;font:500 24px/1.25 var(--serif);color:var(--choco);margin-bottom:6px}
 .help a{color:var(--cranberry);font-weight:600;font-size:22px;text-decoration:none;display:inline-block;padding:8px 0;min-height:44px}
 
 /* форматы и цены */
 .formats{list-style:none;padding:0;margin:36px 0 0}
 .formats li{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--taupe)}
-.formats b{font:500 26px/1.2 var(--serif);color:var(--choco);display:block}
+.formats b{font:500 22px/1.3 var(--serif);color:var(--choco);display:block}
 .formats small{font-size:15px}
-.formats .price{font:500 28px/1 var(--serif);color:var(--choco);white-space:nowrap}
-@media (max-width:560px){.formats li{grid-template-columns:1fr;gap:6px}.formats b{font-size:24px}}
+.formats .price{font:500 24px/1 var(--serif);color:var(--choco);white-space:nowrap}
+@media (max-width:560px){.formats li{grid-template-columns:1fr;gap:6px}.formats b{font-size:21px}}
 .rules{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
 .rules div{background:var(--ivory-2);border:1px solid var(--oat);padding:24px}
 @media (max-width:700px){.rules{grid-template-columns:1fr}}
@@ -203,7 +203,7 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 /* образование */
 .edu-list{list-style:none;padding:0;margin:28px auto 0;max-width:840px;display:grid;gap:12px}
 .edu-list li{padding:0 0 12px;border-bottom:1px solid var(--oat)}
-.edu-list b{font:500 22px/1 var(--serif);color:var(--cranberry);margin-right:10px}
+.edu-list b{font:500 18px/1 var(--serif);color:var(--cranberry);margin-right:10px}
 .edu{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 26px;margin-top:44px}
 .edu .pol:nth-child(odd){transform:rotate(-2deg)}
 .edu .pol:nth-child(even){transform:rotate(2deg)}
@@ -217,7 +217,7 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 .contact-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
 .contact-list a{display:block;text-decoration:none;border:1px solid rgba(255,255,255,.5);padding:16px 20px}
 .contact-list a:hover{background:rgba(255,255,255,.1)}
-.contact-list b{display:block;font:500 24px/1.2 var(--serif)}
+.contact-list b{display:block;font:500 21px/1.3 var(--serif)}
 .contact-list span{font-size:15px}
 .contact-list .main{background:var(--cranberry);border-color:var(--cranberry)}
 .contact-list .main:hover{background:var(--wine)}
