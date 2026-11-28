@@ -43,7 +43,7 @@
   --paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .25 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;background:var(--ivory) var(--paper);color:var(--graphite);font:400 18px/1.65 var(--body);-webkit-text-size-adjust:100%}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--cranberry)}
@@ -94,7 +94,8 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 /* первый экран */
 .hero{padding:56px 0 96px}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-.hero h1 .first{display:block;font-size:.5em;font-style:italic;color:var(--graphite);margin-bottom:.15em}
+.hero h1{font-size:clamp(44px,6.4vw,84px);line-height:1}
+.hero h1 span{white-space:nowrap}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px;padding:0;list-style:none}
 .chips li{border:1px solid var(--taupe);padding:6px 16px;font-size:16px}
 .cta-note{display:block;font-size:15px;margin-top:12px}
@@ -102,7 +103,8 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 .hero-pics .p1{position:absolute;right:0;top:0;width:76%}
 .hero-pics .p2{position:absolute;left:0;bottom:0;width:46%;z-index:2}
 .hero-pics .p2 img{aspect-ratio:1/1}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:40px}.hero-pics{min-height:0;max-width:420px;margin:0 auto 20px;width:100%}.hero-pics .p1{position:relative;width:80%;margin-left:auto}.hero-pics .p2{width:44%;bottom:-24px}}
+@media (max-width:900px){.hero{padding:32px 0 72px}.hero .wrap{grid-template-columns:1fr;gap:36px}.hero-pics{order:-1;min-height:0;max-width:380px;margin:0 auto;width:100%}.hero-pics .p1{position:relative;width:64%;margin-left:auto;margin-right:6%}.hero-pics .p2{width:40%;bottom:-18px}}
+@media (max-width:560px){.hero h1 span{display:block}}
 
 /* обо мне */
 .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -156,6 +158,14 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 .steps h3{font-size:24px}
 @media (max-width:900px){.steps{grid-template-columns:1fr}}
 
+.teen-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;margin-top:8px}
+.teen-grid h3{color:#fff}
+.teen-grid ul{margin:0 0 1em;padding-left:22px}
+.teen-grid li{margin-bottom:6px}
+@media (max-width:900px){.teen-grid{grid-template-columns:1fr;gap:24px}}
+.note{max-width:840px;margin:40px auto 0;padding:22px 26px;background:var(--ivory-2);border:1px solid var(--oat)}
+.note h3{font-size:24px;margin-bottom:6px}
+.price-note{text-align:center;margin:0 auto;max-width:640px}
 .help{margin-top:40px;background:var(--ivory-2);color:var(--graphite);padding:26px 28px;border-left:4px solid var(--cranberry);max-width:840px;margin-left:auto;margin-right:auto}
 .help strong{display:block;font:500 28px/1.2 var(--serif);color:var(--choco);margin-bottom:6px}
 .help a{color:var(--cranberry);font-weight:600;font-size:22px;text-decoration:none;display:inline-block;padding:8px 0;min-height:44px}
@@ -197,7 +207,8 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
 .ph{display:grid;place-items:center;text-align:center;background:repeating-linear-gradient(45deg,#E2D9CB,#E2D9CB 12px,#D9CEBE 12px,#D9CEBE 24px);color:var(--graphite);font:400 14px/1.4 var(--body);padding:16px;aspect-ratio:4/5}
 .mobile-cta{display:none}
 @media (max-width:900px){
-  .mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:9;box-shadow:0 6px 20px rgba(89,70,62,.3)}
+  .mobile-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:9;box-shadow:0 6px 20px rgba(89,70,62,.3);opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .25s,transform .25s,visibility .25s}
+  .mobile-cta.show{opacity:1;visibility:visible;transform:none}
   footer{padding-bottom:96px}
 }
 </style>
@@ -223,7 +234,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
   <div class="wrap">
     <div>
       <p class="eyebrow">( психолог-психоаналитик )</p>
-      <h1><span class="first">Софья</span> <span class="caps">Канина</span></h1>
+      <h1 class="caps"><span>Софья</span> <span>Канина</span></h1>
       <p class="lead">Помогаю взрослым, подросткам и детям с 7 лет разобраться, что <b>мешает</b> жить так, как хочется. Без быстрых советов и готовых техник: вместе ищем, откуда берётся тревога и почему повторяются одни и те же истории.</p>
       <ul class="chips">
         <li>Очно и онлайн</li>
@@ -297,19 +308,11 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
     </ul>
     <p style="margin-top:20px">Мы работаем со всем, что вы принесёте в кабинет, в том числе с тем, что трудно назвать словами. <span class="todo">уточнить у Софьи: фраза про трансгендерных клиентов (вопрос 1 в плане)</span></p>
 
-    <div class="faq">
-      <h3>Частые вопросы</h3>
-      <details><summary>С чего начинается работа?</summary><div class="ans"><p>С первой встречи знакомства. Мы говорим о том, что вас привело, что вас беспокоит, чего вы ждёте от работы. Это не допрос и не тест — это разговор, в котором я помогаю вам сформулировать запрос и понять, подходит ли вам мой подход. По итогам первой встречи мы вместе решаем, продолжаем ли работу и в каком формате.</p></div></details>
-      <details><summary>Как часто проходят встречи?</summary><div class="ans"><p>Как правило, раз в неделю в одно и то же время. Регулярность важна в психоаналитической работе: она создаёт устойчивое пространство, в котором постепенно разворачивается ваша история.</p></div></details>
-      <details><summary>Сколько длится встреча?</summary><div class="ans"><p>Стандартная сессия длится 50 минут.</p></div></details>
-      <details><summary>Сколько времени займёт работа?</summary><div class="ans"><p>Это зависит от запроса и от вашей истории. Психоаналитическая работа — не короткая консультация и не пять шагов к счастью. Это исследование, которое требует времени. Я не обещаю конкретных сроков, но мы регулярно обсуждаем динамику. Вы в любой момент можете обсудить со мной, как идёт работа, и скорректировать её.</p></div></details>
-      <details><summary>Что происходит на сессии?</summary><div class="ans"><p>Вы говорите о том, что для вас важно: о своих чувствах, мыслях, отношениях, снах, воспоминаниях. Я слушаю, задаю вопросы, помогаю замечать то, что может оставаться незамеченным. Это совместное исследование: мы вместе постепенно понимаем, откуда берутся ваши трудности и как они связаны с вашей историей.</p></div></details>
-      <details><summary>Мне нужно готовиться к сессии?</summary><div class="ans"><p>Нет. Не нужно готовить темы, правильные вопросы или отчёты. Можно приходить с тем, что есть: с усталостью, с пустотой, с раздражением, с желанием помолчать. Всё это материал для работы.</p></div></details>
-      <details><summary>А если я не знаю, о чём говорить?</summary><div class="ans"><p>Это очень частая ситуация, и она не проблема. Молчание, ощущение пустоты — тоже часть процесса, и мы можем исследовать это вместе. Вам не нужно быть хорошим клиентом и развлекать меня. Достаточно быть собой.</p></div></details>
-      <details><summary>Это конфиденциально?</summary><div class="ans"><p>Да. Всё, что происходит на наших встречах, остаётся между нами. Если у вас есть вопросы о конфиденциальности, мы можем обсудить их на первой встрече.</p></div></details>
-      <details><summary>Вы работаете онлайн?</summary><div class="ans"><p>Да, если вам так удобнее. Важно только, чтобы у вас было тихое пространство, где вас никто не прерывает, и стабильная связь.</p></div></details>
-      <details><summary>Вы проходите личную терапию и супервизию?</summary><div class="ans"><p>Да, личная терапия и супервизия помогают мне сохранять ясность и не привносить в работу с вами свои собственные слепые пятна.</p></div></details>
-    </div>
+    <ol class="steps">
+      <li><h3>Первая встреча</h3><p>С первой встречи знакомства. Мы говорим о том, что вас привело, что вас беспокоит, чего вы ждёте от работы. Это не допрос и не тест — это разговор, в котором я помогаю вам сформулировать запрос и понять, подходит ли вам мой подход. По итогам первой встречи мы вместе решаем, продолжаем ли работу и в каком формате.</p></li>
+      <li><h3>Что происходит на встрече</h3><p>Вы говорите о том, что для вас важно: о своих чувствах, мыслях, отношениях, снах, воспоминаниях. Я слушаю, задаю вопросы, помогаю замечать то, что может оставаться незамеченным. Это совместное исследование: мы вместе постепенно понимаем, откуда берутся ваши трудности и как они связаны с вашей историей.</p></li>
+      <li><h3>Сколько длится работа</h3><p>Это зависит от запроса и от вашей истории. Психоаналитическая работа — не короткая консультация и не пять шагов к счастью. Это исследование, которое требует времени. Я не обещаю конкретных сроков, но мы регулярно обсуждаем динамику. Вы в любой момент можете обсудить со мной, как идёт работа, и скорректировать её.</p></li>
+    </ol>
   </div>
 </section>
 
@@ -342,16 +345,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
       <li><h3>Регулярные встречи с вами</h3><p>Обсуждаем, как меняется состояние ребёнка и что можно сделать дома. Родители не «сбоку» от процесса, а его важная часть.</p></li>
     </ol>
 
-    <div class="faq">
-      <h3>Частые вопросы родителей</h3>
-      <details><summary>Как объяснить ребёнку, куда мы идём?</summary><div class="ans"><p>Скажите просто и честно, без пугающих формулировок. Например: «Есть взрослая, с которой можно поговорить о том, что тебя беспокоит. Ей можно рассказать про школу, про друзей, про то, что тебе грустно или страшно. Она не будет тебя ругать». Не нужно говорить «тебя там полечат» или «тебя научат себя вести» — это создаёт ощущение, что с ребёнком «что-то не так».</p></div></details>
-      <details><summary>Что делать, если ребёнок не хочет идти?</summary><div class="ans"><p>Это нормально: новое место и новый взрослый вызывают тревогу. Не заставляйте и не давите. Можно предложить: «Давай сходим один раз, просто посмотрим. Если не понравится, не будем ходить». Часто достаточно одного визита, чтобы тревога снизилась и ребёнок в дальнейшем шёл на встречи с удовольствием. Если сопротивление сильное, мы можем сначала встретиться с вами без ребёнка и вместе подумать, как сделать первый шаг мягче.</p></div></details>
-      <details><summary>Вы мне расскажете всё, что говорит ребёнок?</summary><div class="ans"><p>Я трепетно отношусь к доверию ребёнка — это условие того, чтобы работа была возможна. Я расскажу вам о том, что важно для безопасности и благополучия ребёнка, и о том, как меняется его состояние. Но личные переживания, которыми ребёнок делится со мной, остаются его пространством. При этом мы регулярно встречаемся с вами и обсуждаем всё, что важно для процесса.</p></div></details>
-      <details><summary>Сколько нужно встреч?</summary><div class="ans"><p>Это зависит от запроса и от ребёнка. Иногда достаточно нескольких встреч, чтобы стало легче, иногда нужна более длительная работа. Я не обещаю «избавить за три сессии», но мы регулярно обсуждаем динамику и вместе решаем, как двигаться дальше.</p></div></details>
-      <details><summary>Нужно ли мне присутствовать на встрече?</summary><div class="ans"><p>С детьми младшего возраста первая встреча часто проходит вместе с родителем, так ребёнку спокойнее. Дальше, как правило, мы работаем один на один, а с вами встречаемся отдельно. С подростками важно пространство наедине — это часть уважения к их автономии.</p></div></details>
-      <details><summary>С какого возраста вы работаете?</summary><div class="ans"><p>С 7 лет и старше, включая подростков. С детьми старшего дошкольного возраста — по вопросам дезадаптации, по договорённости с родителем, зачастую разово, а основная работа проходит со взрослым.</p></div></details>
-      <details><summary>Если вы сомневаетесь</summary><div class="ans"><p>Если вам кажется, что с ребёнком «что-то не так», но вы не можете сформулировать, что именно, — это уже достаточный повод прийти на консультацию. Иногда родительское «чувствую, что нужно» оказывается самым точным ориентиром.</p></div></details>
-    </div>
+    <div class="note"><h3>Сколько нужно встреч</h3><p style="margin:0">Это зависит от запроса и от ребёнка. Иногда достаточно нескольких встреч, чтобы стало легче, иногда нужна более длительная работа. Я не обещаю «избавить за три сессии», но мы регулярно обсуждаем динамику и вместе решаем, как двигаться дальше.</p></div>
   </div>
 </section>
 
@@ -365,8 +359,8 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
       </div>
       <figure class="pol wide tr"><img src="images/teens-headphones.webp" width="900" height="616" alt="Иллюстрация: наушники, блокнот и кружка на подоконнике" loading="lazy"></figure>
     </div>
-    <div class="faq">
-      <details open><summary>С чем ко мне приходят подростки?</summary><div class="ans"><ul>
+    <div class="teen-grid">
+      <div><h3>С чем ко мне приходят подростки</h3><ul>
         <li>Тревога, страхи, ощущение, что «что-то не так»</li>
         <li>Отношения с родителями: конфликты, непонимание, чувство, что тебя не слышат</li>
         <li>Отношения со сверстниками: дружба, влюблённость, конфликты, травля</li>
@@ -377,13 +371,12 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
         <li>Расстройства пищевого поведения</li>
         <li>Трудности в школе, давление, усталость</li>
         <li>Переживания, которыми трудно поделиться с близкими</li>
-      </ul></div></details>
-      <details><summary>Как это происходит?</summary><div class="ans"><p>Мы просто разговариваем. Ты можешь говорить о том, о чём хочешь, или молчать, если не готов. Я не буду заставлять тебя говорить «по плану» и не буду передавать родителям то, что ты рассказываешь, кроме ситуаций, когда речь идёт о твоей безопасности. Это важно, и я говорю об этом честно с самого начала.</p><p>Всё, что происходит на наших встречах, конфиденциально.</p></div></details>
-      <details><summary>Что важно знать?</summary><div class="ans"><ul>
+      </ul></div>
+      <div><h3>Как это происходит</h3><p>Мы просто разговариваем. Ты можешь говорить о том, о чём хочешь, или молчать, если не готов. Я не буду заставлять тебя говорить «по плану» и не буду передавать родителям то, что ты рассказываешь, кроме ситуаций, когда речь идёт о твоей безопасности. Это важно, и я говорю об этом честно с самого начала.</p><p>Всё, что происходит на наших встречах, конфиденциально.</p><h3>Что важно знать</h3><ul>
         <li>Тебе не нужно быть «готовым» или «формулировать проблему». Можно прийти просто с ощущением «мне плохо», и мы начнём с этого.</li>
         <li>Ты можешь сказать «я не хочу об этом говорить», и это будет уважаться.</li>
         <li>Если тебе не понравится со мной работать — это нормально, можно сказать об этом. Я не обижусь.</li>
-      </ul><p>Если ты читаешь это и чувствуешь, что тебе нужна поддержка, скажи об этом родителям или напиши мне. Первый шаг всегда самый трудный, но ты не один.</p></div></details>
+      </ul><p>Если ты читаешь это и чувствуешь, что тебе нужна поддержка, скажи об этом родителям или напиши мне. Первый шаг всегда самый трудный, но ты не один.</p></div>
     </div>
     <div class="help">
       <strong>Если прямо сейчас очень плохо</strong>
@@ -398,6 +391,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
   <div class="wrap narrow">
     <p class="eyebrow center">( форматы и стоимость )</p>
     <h2 id="prices-h" class="center">В каких <span class="caps">форматах</span> со мной можно поработать</h2>
+    <p class="price-note">Встреча длится 50 минут. Как правило, раз в неделю в одно и то же время. Онлайн тоже можно: важно только тихое пространство, где вас никто не прерывает, и стабильная связь.</p>
     <ul class="formats">
       <li><img src="https://sophiekanin.aqulas.me/upload/aqulas/016/016d444898e94cf01628c0dfeea2ef4b.jpeg" alt="" loading="lazy" width="72" height="72"><div><b>Индивидуальная консультация</b><small>50 минут, очно</small></div><span class="price">4 000 ₽</span></li>
       <li><img src="images/online-laptop.webp" alt="" loading="lazy" width="72" height="72"><div><b>Онлайн-консультация</b><small>50 минут, по видеосвязи</small></div><span class="price">4 000 ₽</span></li>
@@ -411,7 +405,23 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
   </div>
 </section>
 
-<section id="education" class="light" aria-labelledby="edu-h">
+<section id="faq" class="light" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="eyebrow center">( вопросы )</p>
+    <h2 id="faq-h" class="center">Частые <span class="caps">вопросы</span></h2>
+    <div class="faq" style="margin-top:32px">
+      <details><summary>Это конфиденциально?</summary><div class="ans"><p>Да. Всё, что происходит на наших встречах, остаётся между нами. Если у вас есть вопросы о конфиденциальности, мы можем обсудить их на первой встрече.</p></div></details>
+      <details><summary>А если я не знаю, о чём говорить?</summary><div class="ans"><p>Нет. Не нужно готовить темы, правильные вопросы или отчёты. Можно приходить с тем, что есть: с усталостью, с пустотой, с раздражением, с желанием помолчать. Всё это материал для работы.</p><p>Это очень частая ситуация, и она не проблема. Молчание, ощущение пустоты — тоже часть процесса, и мы можем исследовать это вместе. Вам не нужно быть хорошим клиентом и развлекать меня. Достаточно быть собой.</p></div></details>
+      <details><summary>Вы проходите личную терапию и супервизию?</summary><div class="ans"><p>Да, личная терапия и супервизия помогают мне сохранять ясность и не привносить в работу с вами свои собственные слепые пятна.</p></div></details>
+      <details><summary>С какого возраста вы работаете?</summary><div class="ans"><p>С 7 лет и старше, включая подростков. С детьми старшего дошкольного возраста — по вопросам дезадаптации, по договорённости с родителем, зачастую разово, а основная работа проходит со взрослым.</p></div></details>
+      <details><summary>Нужно ли мне присутствовать на встрече ребёнка?</summary><div class="ans"><p>С детьми младшего возраста первая встреча часто проходит вместе с родителем, так ребёнку спокойнее. Дальше, как правило, мы работаем один на один, а с вами встречаемся отдельно. С подростками важно пространство наедине — это часть уважения к их автономии.</p></div></details>
+      <details><summary>Вы мне расскажете всё, что говорит ребёнок?</summary><div class="ans"><p>Я трепетно отношусь к доверию ребёнка — это условие того, чтобы работа была возможна. Я расскажу вам о том, что важно для безопасности и благополучия ребёнка, и о том, как меняется его состояние. Но личные переживания, которыми ребёнок делится со мной, остаются его пространством. При этом мы регулярно встречаемся с вами и обсуждаем всё, что важно для процесса.</p></div></details>
+      <details><summary>Ребёнок не хочет идти. Как ему объяснить?</summary><div class="ans"><p>Скажите просто и честно, без пугающих формулировок. Например: «Есть взрослая, с которой можно поговорить о том, что тебя беспокоит. Ей можно рассказать про школу, про друзей, про то, что тебе грустно или страшно. Она не будет тебя ругать». Не нужно говорить «тебя там полечат» или «тебя научат себя вести» — это создаёт ощущение, что с ребёнком «что-то не так».</p><p>Это нормально: новое место и новый взрослый вызывают тревогу. Не заставляйте и не давите. Можно предложить: «Давай сходим один раз, просто посмотрим. Если не понравится, не будем ходить». Часто достаточно одного визита, чтобы тревога снизилась и ребёнок в дальнейшем шёл на встречи с удовольствием. Если сопротивление сильное, мы можем сначала встретиться с вами без ребёнка и вместе подумать, как сделать первый шаг мягче.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section id="education" aria-labelledby="edu-h">
   <div class="wrap">
     <p class="eyebrow center">( образование )</p>
     <h2 id="edu-h" class="center">Учусь и <span class="caps">развиваюсь</span></h2>
@@ -451,5 +461,10 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
 </footer>
 
 <a class="btn mobile-cta" href="https://t.me/sophie_kanina">Написать в Telegram</a>
+<script>
+(function(){var b=document.querySelector('.mobile-cta');if(!b||!('IntersectionObserver' in window)){if(b)b.classList.add('show');return}
+var vis={};var io=new IntersectionObserver(function(es){es.forEach(function(e){vis[e.target.id||'hero']=e.isIntersecting});b.classList.toggle('show',!vis.hero&&!vis.contacts)});
+io.observe(document.querySelector('.hero'));io.observe(document.getElementById('contacts'))})();
+</script>
 </body>
 </html>
