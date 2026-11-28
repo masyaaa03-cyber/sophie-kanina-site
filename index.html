@@ -75,6 +75,8 @@ section{padding:88px 0;position:relative;overflow-x:clip}
 .pol img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--oat)}
 .pol figcaption{position:absolute;left:10px;right:10px;bottom:8px;font:italic 500 18px/1.2 var(--serif);color:var(--choco);text-align:center}
 .pol::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;margin-left:-42px;background:rgba(205,191,174,.75);transform:rotate(-3deg)}
+.pol.wide img{aspect-ratio:3/2}.pol.sq img{aspect-ratio:1/1}
+.pair{position:relative;padding-bottom:90px}.pair .sq{position:absolute;right:-8px;bottom:0;width:46%}
 .tl{transform:rotate(-4deg)}.tr{transform:rotate(3.5deg)}.ts{transform:rotate(-1.5deg)}
 
 /* шапка */
@@ -283,7 +285,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
         <p>Кто-то годами живёт с тревогой и не понимает, откуда она. Кто-то повторяет одни и те же отношения, которые заканчиваются одинаково. Кто-то чувствует, что потерял себя.</p>
         <p>Я не обещаю мгновенных изменений, но предлагаю пространство, где можно остановиться, выдохнуть и начать понимать, что с вами происходит.</p>
       </div>
-      <figure class="pol tr"><div class="ph">Место для фото: кресло у окна (промпт 1 из плана)</div></figure>
+      <figure class="pol wide tr"><img src="images/adults-armchair.webp" width="900" height="616" alt="Иллюстрация: кресло у окна в тихой комнате" loading="lazy"></figure>
     </div>
     <ul class="cards">
       <li>Тревога, страхи, внутреннее напряжение</li>
@@ -320,7 +322,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
         <p>Дети не всегда могут сказать словами, что их тревожит. Иногда они «ведут себя не так»: капризничают, замыкаются, боятся, дерутся, отказываются идти в школу. За этим почти всегда стоит что-то важное, что ребёнок пока не умеет выразить иначе.</p>
         <p>Я работаю с детьми с 7 лет и подростками через игру, творчество и разговор. И работаю в связке с родителями, потому что изменения происходят не только в кабинете, но и дома.</p>
       </div>
-      <figure class="pol tl"><div class="ph">Место для фото: стол с детскими рисунками (промпт 2 из плана)</div></figure>
+      <div class="pair"><figure class="pol wide tl"><img src="images/kids-table.webp" width="900" height="616" alt="Иллюстрация: карандаши и детские рисунки на столе" loading="lazy"></figure><figure class="pol sq tr"><img src="images/sandtray.webp" width="900" height="900" alt="Иллюстрация: песочница с фигурками, домиком и деревьями" loading="lazy"><figcaption>песочница</figcaption></figure></div>
     </div>
     <ul class="cards">
       <li>Тревожность, страхи, ночные кошмары</li>
@@ -361,7 +363,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
         <h2 id="teens-h">Если тебе от 12 до 18 <span class="caps">лет</span></h2>
         <p class="lead">Я не буду тебя воспитывать и оценивать. Моя задача — помочь тебе разобраться в том, что ты чувствуешь, и найти способы с этим справляться.</p>
       </div>
-      <figure class="pol tr"><div class="ph">Место для фото: наушники и блокнот (промпт 3 из плана)</div></figure>
+      <figure class="pol wide tr"><img src="images/teens-headphones.webp" width="900" height="616" alt="Иллюстрация: наушники, блокнот и кружка на подоконнике" loading="lazy"></figure>
     </div>
     <div class="faq">
       <details open><summary>С чем ко мне приходят подростки?</summary><div class="ans"><ul>
@@ -398,7 +400,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
     <h2 id="prices-h" class="center">В каких <span class="caps">форматах</span> со мной можно поработать</h2>
     <ul class="formats">
       <li><img src="https://sophiekanin.aqulas.me/upload/aqulas/016/016d444898e94cf01628c0dfeea2ef4b.jpeg" alt="" loading="lazy" width="72" height="72"><div><b>Индивидуальная консультация</b><small>50 минут, очно</small></div><span class="price">4 000 ₽</span></li>
-      <li><div class="mini" aria-hidden="true"></div><div><b>Онлайн-консультация</b><small>50 минут, по видеосвязи</small></div><span class="price">4 000 ₽</span></li>
+      <li><img src="images/online-laptop.webp" alt="" loading="lazy" width="72" height="72"><div><b>Онлайн-консультация</b><small>50 минут, по видеосвязи</small></div><span class="price">4 000 ₽</span></li>
       <li><img src="https://sophiekanin.aqulas.me/upload/aqulas/75e/75e9e1ed03ebf3fe8a2029b134390a60.webp" alt="" loading="lazy" width="72" height="72"><div><b>Парная консультация</b><small>90 минут</small></div><span class="price">7 000 ₽</span></li>
       <li><img src="https://sophiekanin.aqulas.me/upload/aqulas/426/426c8d932a0387af0396b771b7750c4f.jpeg" alt="" loading="lazy" width="72" height="72"><div><b>Встреча с ребёнком или родителями</b><small><span class="todo">уточнить цену и длительность</span></small></div><span class="price">—</span></li>
     </ul>
@@ -422,7 +424,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
       <figure class="pol"><img src="https://sophiekanin.aqulas.me/upload/aqulas/654/6543da9806d8c3296cd0ccec8ce4e2c3.jpeg" alt="Документ об обучении" loading="lazy" width="800" height="1066"></figure>
       <figure class="pol"><img src="https://sophiekanin.aqulas.me/upload/aqulas/db2/db294629b4bd6818ae3227c657d00c15.jpeg" alt="Документ об обучении" loading="lazy" width="800" height="1066"></figure>
       <figure class="pol"><img src="https://sophiekanin.aqulas.me/upload/aqulas/398/398db5bbc9e917790ce0250e92d754a0.jpeg" alt="Документ об обучении" loading="lazy" width="800" height="1066"></figure>
-      <figure class="pol"><div class="ph">Место для фото: сухие цветы (промпт 6 из плана)</div></figure>
+      <figure class="pol"><img src="images/dried-flowers.webp" width="896" height="1152" alt="Иллюстрация: букет полевых цветов" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -439,7 +441,7 @@ footer{padding:32px 0 48px;font-size:15px;border-top:1px solid var(--oat)}
         <li><a href="mailto:SophieDorofeev@yandex.ru"><b>SophieDorofeev@yandex.ru</b><span>Отвечаю в течение дня</span></a></li>
       </ul>
     </div>
-    <figure class="pol tr"><div class="ph">Место для фото: ноутбук и чай, онлайн-формат (промпт 5 из плана)</div></figure>
+    <figure class="pol wide tr"><img src="images/online-laptop.webp" width="900" height="616" alt="Иллюстрация: ноутбук и настольная лампа на столе" loading="lazy"><figcaption>можно онлайн</figcaption></figure>
   </div>
 </section>
 </main>
